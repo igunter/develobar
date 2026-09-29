@@ -22,7 +22,7 @@ All of Develobar's features run entirely on your device, inside your browser:
 
 ## Storage
 
-Develobar does not store anything, either on your device or elsewhere.
+Develobar stores only one thing: which of your open tabs currently have the toolbar showing, so it can put the toolbar back if the page reloads. This is an internal tab number held in the browser's temporary session storage. It contains no web addresses, page content or browsing data, it is never written to disk, and it is cleared when the tab or browser is closed.
 
 ## External links
 
@@ -35,9 +35,10 @@ The SEO tool includes optional links to Google's Rich Results Test, the Schema M
 Develobar requests only the permissions it needs to work:
 
 - **activeTab**: gives Develobar temporary access to the current tab only when you click its icon or press its keyboard shortcut, so it can show the toolbar and capture the visible tab for screenshots and the colour picker.
-- **scripting**: to add the toolbar to that tab.
+- **scripting**: to add the toolbar to that tab, and to put it back if the page reloads while it is open.
+- **storage**: to remember which tabs have the toolbar open, as described under Storage above.
 
-Develobar has no access to any website until you open it there, and it never uses these permissions to collect, record or transmit your browsing activity or page content.
+Develobar has no access to any website until you open it there, and that access ends when the tab moves to a different site or is closed, and it never uses these permissions to collect, record or transmit your browsing activity or page content.
 
 ## Data sharing and sale
 

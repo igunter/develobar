@@ -49,6 +49,7 @@ window.Develobar = window.Develobar || (() => {
 
         document.documentElement.appendChild(host);
         pushPageDown(true);
+        reportState(true);
     }
 
     function unmount() {
@@ -58,6 +59,13 @@ window.Develobar = window.Develobar || (() => {
         host.remove();
         host = null;
         pushPageDown(false);
+        reportState(false);
+    }
+
+    // Lets background.js reopen the bar after the page reloads.
+    function reportState(open) {
+        if (!contextValid()) return;
+        chrome.runtime.sendMessage({ type: 'develobar:state', open }).catch(() => {});
     }
 
     function toggle() {

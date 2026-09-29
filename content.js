@@ -11,6 +11,8 @@
     chrome.runtime.onMessage.addListener((msg) => {
         if (msg?.type === 'develobar:toggle') {
             Develobar.toggle();
+        } else if (msg?.type === 'develobar:open') {
+            Develobar.mount(); // restoring after a reload
         }
     });
 })();

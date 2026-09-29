@@ -12,7 +12,7 @@ A developer toolbar for any web page: screenshot, colour picker, ruler, copy CSS
 
 Develobar adds a compact developer toolbar to any web page, giving you the everyday tools you reach for when building, reviewing or debugging websites, without opening DevTools.
 
-Open it on any page by clicking the toolbar icon or pressing Alt+Shift+D. Develobar only runs on a page when you open it there.
+Open it on any page by clicking the toolbar icon or pressing Alt+Shift+D. Develobar only runs on a page when you open it there. Once open, it stays open when you reload the page or follow links within the same site, until you close it.
 
 **Tools included**
 
@@ -39,11 +39,15 @@ Develobar provides a toolbar of front-end developer utilities (screenshot captur
 
 ### activeTab
 
-Develobar only runs on a page when the user asks for it by clicking the toolbar icon or pressing the keyboard shortcut. activeTab gives it temporary access to that tab so it can add the toolbar to the page and capture the visible tab for the screenshot and colour picker tools. It requests no standing access to any website.
+Develobar only runs on a page when the user asks for it by clicking the toolbar icon or pressing the keyboard shortcut. activeTab gives it temporary access to that tab so it can add the toolbar to the page and capture the visible tab for the screenshot and colour picker tools. When the page is reloaded or the user follows a link within the same site, Develobar uses this same temporary access to put the toolbar back; as soon as the tab moves to a different site, the access ends and the toolbar is not restored. It requests no standing access to any website.
 
 ### scripting
 
-The scripting permission is used to inject Develobar's toolbar and tool scripts into the current tab when the user clicks the toolbar icon or presses the keyboard shortcut. Only scripts bundled with the extension are injected; no remote code is executed.
+The scripting permission is used to inject Develobar's toolbar and tool scripts into the current tab when the user clicks the toolbar icon or presses the keyboard shortcut, and to re-add the toolbar after that tab reloads within the same site. Only scripts bundled with the extension are injected; no remote code is executed.
+
+### storage
+
+The storage permission is used only to remember which open tabs currently have the toolbar showing, so it can be restored after the page reloads. This is kept in session storage (chrome.storage.session), which holds just the tab's ID, is never written to disk, and is cleared when the tab or browser is closed. No page content, URLs or browsing data are stored.
 
 ### Remote code
 
