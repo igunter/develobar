@@ -14,7 +14,7 @@ Let the user have a rule to measure areas on the screen
 Highlight an element and download the CSS for it, so you can fully duplicate the style.
 
 
-[ ] SEO Graph
+[*] SEO Graph
 Display the SEO Meta Tags, canonical, robots and structured data of the page in a modal. See if we can do an SEO optimised lookup on the page
 
 

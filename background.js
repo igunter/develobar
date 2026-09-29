@@ -9,6 +9,7 @@ const CONTENT_FILES = [
     'tools/ruler/ruler.js',
     'tools/copy-css/copy-css.js',
     'tools/accessibility/accessibility.js',
+    'tools/seo/seo.js',
     'content.js'
 ];
 

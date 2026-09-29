@@ -6,7 +6,7 @@ Develobar – Developer Toolbar
 
 ## Summary
 
-A developer toolbar for any web page: screenshot, colour picker, ruler, copy CSS and accessibility checks, all in one bar.
+A developer toolbar for any web page: screenshot, colour picker, ruler, copy CSS, accessibility and SEO checks, all in one bar.
 
 ## Description
 
@@ -21,6 +21,7 @@ Open it on any page by clicking the toolbar icon or pressing Alt+Shift+D. Develo
 - **Ruler**: click two points to measure the distance between them in pixels. Hold Shift to snap to horizontal, vertical or 45° lines. Measurements stay in place when you scroll.
 - **Copy CSS**: select an element on the page to see the CSS that reproduces its look, ready to copy to your clipboard or download as a .css file.
 - **Accessibility**: check text contrast against WCAG AA or AAA, find missing or unhelpful alt text, review the heading outline, and spot keyboard problems such as unlabelled buttons and fields. Show the tab order on the page, and check any two colours with the built-in contrast checker. Click a result to jump to the element.
+- **SEO**: see the page's title, meta description, canonical, robots directives and every meta and link tag, with a search result preview and a checklist of common issues. Preview how the page looks when shared on social sites, explore its JSON-LD and microdata, and check whether robots.txt blocks the page. Links open Google's Rich Results Test, the Schema Markup Validator and PageSpeed Insights for deeper checks.
 
 **Private by design**
 
@@ -32,7 +33,7 @@ Everything happens locally in your browser. Develobar has no accounts, no analyt
 
 ## Single Purpose Description
 
-Develobar provides a toolbar of front-end developer utilities (screenshot capture, colour picking, on-page measurement, CSS inspection and accessibility checks) that the user can open on any web page to inspect and capture that page.
+Develobar provides a toolbar of front-end developer utilities (screenshot capture, colour picking, on-page measurement, CSS inspection, accessibility and SEO checks) that the user can open on any web page to inspect and capture that page.
 
 ## Permission Justifications
 
