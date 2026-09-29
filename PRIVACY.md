@@ -18,9 +18,9 @@ All of Develobar's features run entirely on your device, inside your browser:
 - **Copy CSS**: styles of the element you select are read from the page and shown to you so you can copy them to your clipboard or download a .css file. Nothing is transmitted.
 - **Clipboard**: Develobar only writes to your clipboard when you choose to copy a value. It never reads your clipboard.
 
-## Local storage
+## Storage
 
-Develobar uses Chrome's local extension storage to save one setting: whether the toolbar is open or closed. This lets the toolbar stay open as you move between tabs. The setting stays on your device, contains no personal information, and is removed when you uninstall the extension.
+Develobar does not store anything, either on your device or elsewhere.
 
 ## External links
 
@@ -30,11 +30,10 @@ The colour picker includes an optional link to a colour palette generator on ian
 
 Develobar requests only the permissions it needs to work:
 
-- **activeTab** and **host access to all sites**: to show the toolbar on the page you are viewing and to capture the visible tab for screenshots and the colour picker.
-- **scripting**: to add the toolbar to tabs that were already open when the extension was installed.
-- **storage**: to remember whether the toolbar is open.
+- **activeTab**: gives Develobar temporary access to the current tab only when you click its icon or press its keyboard shortcut, so it can show the toolbar and capture the visible tab for screenshots and the colour picker.
+- **scripting**: to add the toolbar to that tab.
 
-None of these permissions are used to collect, record or transmit your browsing activity or page content.
+Develobar has no access to any website until you open it there, and it never uses these permissions to collect, record or transmit your browsing activity or page content.
 
 ## Data sharing and sale
 

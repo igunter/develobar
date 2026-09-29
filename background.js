@@ -18,13 +18,10 @@ chrome.action.onClicked.addListener(async (tab) => {
     try {
         await chrome.tabs.sendMessage(tab.id, { type: 'develobar:toggle' });
     } catch {
-        // Tab was open before the extension loaded, so it has no content script yet.
+        // First use on this page (activeTab only lets us inject on click), so it has no content script yet.
         try {
             await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: CONTENT_FILES });
-
-            // If the bar is already open elsewhere, the fresh script auto-opens it here; just open it otherwise.
-            const { develobarOpen } = await chrome.storage.local.get('develobarOpen');
-            if (!develobarOpen) await chrome.tabs.sendMessage(tab.id, { type: 'develobar:toggle' });
+            await chrome.tabs.sendMessage(tab.id, { type: 'develobar:toggle' });
         } catch (err) {
             // chrome://, Web Store and other restricted pages can't be scripted.
             console.warn('Develobar: cannot run on this page.', err);

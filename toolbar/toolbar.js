@@ -6,8 +6,6 @@ window.Develobar = window.Develobar || (() => {
     const PAGE_CLASS = 'develobar-active';
     const BAR_HEIGHT = 42;
 
-    const STORAGE_KEY = 'develobarOpen';
-
     const tools = {};
     let host = null;
     let activeTool = null;
@@ -21,17 +19,6 @@ window.Develobar = window.Develobar || (() => {
     // off: every chrome.* call throws "Extension context invalidated".
     function contextValid() {
         return !!chrome.runtime?.id;
-    }
-
-    // Open/closed is persisted in storage; content.js mounts/unmounts every tab to match.
-    function setOpen(open) {
-        if (!contextValid()) return;
-        chrome.storage.local.set({ [STORAGE_KEY]: open });
-    }
-
-    async function isOpen() {
-        const data = await chrome.storage.local.get(STORAGE_KEY);
-        return !!data[STORAGE_KEY];
     }
 
     async function mount() {
@@ -74,7 +61,7 @@ window.Develobar = window.Develobar || (() => {
     }
 
     function toggle() {
-        setOpen(!wantOpen);
+        wantOpen ? unmount() : mount();
     }
 
     // Shift the page down so the bar doesn't cover content.
@@ -183,7 +170,7 @@ window.Develobar = window.Develobar || (() => {
         closeMenus();
 
         if (button.dataset.action === 'close') {
-            setOpen(false);
+            unmount();
             return;
         }
 
@@ -262,5 +249,5 @@ window.Develobar = window.Develobar || (() => {
         pushPageDown(!hidden);
     }
 
-    return { registerTool, toggle, setOpen, isOpen, mount, unmount, setActiveTool, setHidden, getPanel, openPanel, STORAGE_KEY, BAR_HEIGHT };
+    return { registerTool, toggle, mount, unmount, setActiveTool, setHidden, getPanel, openPanel, BAR_HEIGHT };
 })();

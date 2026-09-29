@@ -12,7 +12,7 @@ A developer toolbar for any web page: screenshot, colour picker, ruler and copy 
 
 Develobar adds a compact developer toolbar to any web page, giving you the everyday tools you reach for when building, reviewing or debugging websites, without opening DevTools.
 
-Open it by clicking the toolbar icon or pressing Alt+Shift+D. Once it's open, it stays open as you move between tabs until you close it.
+Open it on any page by clicking the toolbar icon or pressing Alt+Shift+D. Develobar only runs on a page when you open it there.
 
 **Tools included**
 
@@ -37,24 +37,11 @@ Develobar provides a toolbar of front-end developer utilities (screenshot captur
 
 ### activeTab
 
-Develobar uses activeTab so that when the user clicks the toolbar icon or presses the keyboard shortcut, it can act on the current tab. This is needed to inject the toolbar into tabs that were already open before the extension was installed or updated, and to capture the visible tab for the screenshot and colour picker tools.
+Develobar only runs on a page when the user asks for it by clicking the toolbar icon or pressing the keyboard shortcut. activeTab gives it temporary access to that tab so it can add the toolbar to the page and capture the visible tab for the screenshot and colour picker tools. It requests no standing access to any website.
 
 ### scripting
 
-The scripting permission is used to inject Develobar's toolbar and tool scripts into the current tab when the user opens the toolbar on a page that was already open before the extension was installed or updated. No remote code is executed; only scripts bundled with the extension are injected.
-
-### storage
-
-chrome.storage.local stores a single true/false value recording whether the toolbar is open, so that it stays open (or closed) consistently as the user switches between tabs and reloads pages. No personal data or page content is stored.
-
-### Host permission (<all_urls>)
-
-Develobar is a general-purpose developer tool meant to work on whatever site the user is building or inspecting, so it has to be available on all URLs. The host permission is used to:
-
-- run the content script that draws the toolbar and its tools (ruler, colour picker, region select, Copy CSS element selection) on the page;
-- call chrome.tabs.captureVisibleTab for screenshots and colour picking, including repeated captures while scrolling to build a full-page screenshot, and re-captures after the page scrolls during colour picking.
-
-Page content and captures are processed locally in the browser and are never transmitted.
+The scripting permission is used to inject Develobar's toolbar and tool scripts into the current tab when the user clicks the toolbar icon or presses the keyboard shortcut. Only scripts bundled with the extension are injected; no remote code is executed.
 
 ### Remote code
 

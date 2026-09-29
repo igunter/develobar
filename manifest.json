@@ -23,26 +23,7 @@
     "service_worker": "background.js"
   },
 
-  "permissions": ["activeTab", "scripting", "storage"],
-
-  "host_permissions": ["<all_urls>"],
-
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": [
-        "toolbar/toolbar.js",
-        "tools/screenshot/region-select.js",
-        "tools/screenshot/full-page.js",
-        "tools/screenshot/screenshot.js",
-        "tools/colour-picker/colour-picker.js",
-        "tools/ruler/ruler.js",
-        "tools/copy-css/copy-css.js",
-        "content.js"
-      ],
-      "run_at": "document_idle"
-    }
-  ],
+  "permissions": ["activeTab", "scripting"],
 
   "web_accessible_resources": [
     {
