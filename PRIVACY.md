@@ -28,7 +28,7 @@ Develobar stores only one thing: which of your open tabs currently have the tool
 
 The colour picker includes an optional link to a colour palette generator on iangunter.co.uk. If you click it, the selected colour's HEX value is passed in the link so the generator can use it. Nothing is sent unless you click the link, and that website is governed by its own privacy policy.
 
-The SEO tool includes optional links to Google's Rich Results Test, the Schema Markup Validator and PageSpeed Insights. If you click one, the address of the page you are viewing is passed to that service so it can check it. Nothing is sent unless you click a link, and those services are governed by their own privacy policies.
+The SEO tool includes optional links to Google's Rich Results Test, the Schema Markup Validator, PageSpeed Insights and, when social or structured data is missing, a Social Meta Checker on iangunter.co.uk. If you click one, the address of the page you are viewing is passed to that service so it can check it. Nothing is sent unless you click a link, and those services are governed by their own privacy policies.
 
 ## Permissions
 

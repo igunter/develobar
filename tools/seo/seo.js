@@ -31,6 +31,10 @@
         { label: 'PageSpeed Insights', url: (u) => `https://pagespeed.web.dev/analysis?url=${encodeURIComponent(u)}` }
     ];
 
+    // Offered under "Social & structured data" when anything there is missing or wrong.
+    const SOCIAL_GROUP = 'Social & structured data';
+    const SOCIAL_CHECKER_URL = (u) => `https://iangunter.co.uk/infrastructure/social-meta-checker?url=${encodeURIComponent(u)}`;
+
     const CSS = `
         :host { all: initial; }
 
@@ -171,6 +175,20 @@
 
         a:hover {
             text-decoration: underline;
+        }
+
+        a.fix-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 7px 12px;
+            border-radius: 5px;
+            background: #2563eb;
+            color: #fff;
+        }
+
+        a.fix-link:hover {
+            background: #1d4ed8;
+            text-decoration: none;
         }
 
         h3 {
@@ -881,7 +899,7 @@
         add('info', 'Links', `${d.links.internal} internal · ${d.links.external} external · ${d.links.nofollow} nofollow/ugc/sponsored`);
 
         // Social & structured data
-        add = group('Social & structured data');
+        add = group(SOCIAL_GROUP);
         const og = Object.fromEntries(d.og.map((t) => [t.key, t.value]));
         const missingOg = ['og:title', 'og:description', 'og:image'].filter((k) => !og[k]);
         if (!missingOg.length) add('pass', 'Open Graph', 'Title, description and image set');
@@ -978,6 +996,9 @@
                         <div class="value">${esc(c.value)}${c.detail ? `<span class="detail">${esc(c.detail)}</span>` : ''}</div>
                     </div>
                 `).join('')}
+                ${g.name === SOCIAL_GROUP && g.items.some((c) => c.status !== 'pass') ? `
+                    <a class="fix-link" href="${esc(SOCIAL_CHECKER_URL(d.url))}" target="_blank" rel="noopener">Fix social &amp; structured data with the Social Meta Checker ↗</a>
+                ` : ''}
             `).join('')}
         `;
     }
