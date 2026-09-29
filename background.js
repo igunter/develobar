@@ -8,6 +8,7 @@ const CONTENT_FILES = [
     'tools/colour-picker/colour-picker.js',
     'tools/ruler/ruler.js',
     'tools/copy-css/copy-css.js',
+    'tools/accessibility/accessibility.js',
     'content.js'
 ];
 

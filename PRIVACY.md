@@ -16,6 +16,7 @@ All of Develobar's features run entirely on your device, inside your browser:
 - **Colour picker**: to read pixel colours, Develobar takes temporary screenshots of the visible tab. These are held in memory only while the tool is in use and are discarded afterwards.
 - **Ruler**: measurements are calculated on the page and are not saved.
 - **Copy CSS**: styles of the element you select are read from the page and shown to you so you can copy them to your clipboard or download a .css file. Nothing is transmitted.
+- **Accessibility**: the page's text colours, images, headings and controls are checked locally and the results are shown to you. Nothing is transmitted.
 - **Clipboard**: Develobar only writes to your clipboard when you choose to copy a value. It never reads your clipboard.
 
 ## Storage

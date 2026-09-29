@@ -167,15 +167,23 @@ window.Develobar = window.Develobar || (() => {
             return;
         }
 
+        const id = button.dataset.tool;
+        const option = button.dataset.option;
+
+        // A tool still running after its panel was closed (e.g. by clicking the page):
+        // reopen the panel rather than turning the tool off.
+        const panel = getPanel(id);
+        if (id && activeTool?.id === id && panel && !panel.closest('.dropdown').classList.contains('open')) {
+            openPanel(id);
+            return;
+        }
+
         closeMenus();
 
         if (button.dataset.action === 'close') {
             unmount();
             return;
         }
-
-        const id = button.dataset.tool;
-        const option = button.dataset.option;
 
         // Menu options always run; plain buttons toggle their tool on/off.
         if (option) {
