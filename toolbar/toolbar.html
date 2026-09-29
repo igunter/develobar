@@ -1,0 +1,28 @@
+<div id="develobar" style="padding-left:0;">
+    <div class="brand" style="background-color: #FFF; padding: 10px;">
+        <img class="logo" src="assets/logo.png" alt="Develobar" />
+        <img class="icon" src="assets/icon.png" alt="Develobar" />
+    </div>
+
+    <div class="dropdown">
+        <button data-dropdown="screenshot">📸 Screenshot <span class="caret">▾</span></button>
+        <div class="menu">
+            <button data-tool="screenshot" data-option="visible">Visible</button>
+            <button data-tool="screenshot" data-option="fullpage">Full Page</button>
+            <button data-tool="screenshot" data-option="select">User Select</button>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button data-tool="colour-picker">🎨 Colour</button>
+        <div class="menu panel" data-panel="colour-picker"></div>
+    </div>
+    <button data-tool="ruler">📏 Measure</button>
+    <div class="dropdown">
+        <button data-tool="copy-css">🧩 Copy CSS</button>
+        <div class="menu panel css-panel" data-panel="copy-css"></div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <button class="close" data-action="close" title="Close Develobar">×</button>
+</div>

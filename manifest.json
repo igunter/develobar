@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "Develobar",
+  "version": "0.1.0",
+  "description": "A developer toolbar for any web page: screenshot, colour picker, measure and inspect.",
+
+  "icons": {
+    "16": "assets/icon.png",
+    "32": "assets/icon.png",
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
+  },
+
+  "action": {
+    "default_title": "Toggle Develobar",
+    "default_icon": {
+      "16": "assets/icon.png",
+      "32": "assets/icon.png"
+    }
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "permissions": ["activeTab", "scripting", "storage"],
+
+  "host_permissions": ["<all_urls>"],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "toolbar/toolbar.js",
+        "tools/screenshot/region-select.js",
+        "tools/screenshot/full-page.js",
+        "tools/screenshot/screenshot.js",
+        "tools/colour-picker/colour-picker.js",
+        "tools/ruler/ruler.js",
+        "tools/copy-css/copy-css.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["toolbar/toolbar.html", "toolbar/toolbar.css", "assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+D" },
+      "description": "Toggle Develobar"
+    }
+  }
+}

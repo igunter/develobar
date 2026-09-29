@@ -1,0 +1,270 @@
+/* Loaded inside the toolbar's shadow root, so page styles don't leak in. */
+
+:host {
+    all: initial;
+}
+
+#develobar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 42px;
+    z-index: 2147483647;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    padding: 0 10px;
+
+    background: #18181b;
+    color: #fff;
+    border-bottom: 1px solid #3f3f46;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    box-sizing: border-box;
+}
+
+#develobar * {
+    box-sizing: border-box;
+}
+
+#develobar .brand {
+    font-weight: 700;
+    font-size: 15px;
+    padding-right: 12px;
+    margin-right: 5px;
+    border-right: 1px solid #3f3f46;
+}
+
+#develobar .brand img {
+    display: block;
+    height: 22px;
+    width: auto;
+}
+
+/* Full logo on wide screens, square icon on small ones. */
+#develobar .brand .icon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #develobar .brand .logo {
+        display: none;
+    }
+
+    #develobar .brand .icon {
+        display: block;
+    }
+}
+
+#develobar button {
+    height: 30px;
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    border: 0;
+    border-radius: 5px;
+
+    background: transparent;
+    color: #e4e4e7;
+
+    font: inherit;
+    cursor: pointer;
+}
+
+#develobar button:hover {
+    background: #27272a;
+    color: #fff;
+}
+
+#develobar button.active {
+    background: #3f3f46;
+    color: #fff;
+}
+
+#develobar .dropdown {
+    position: relative;
+}
+
+#develobar .caret {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+#develobar .menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 150px;
+    padding: 4px;
+
+    flex-direction: column;
+    gap: 2px;
+
+    background: #18181b;
+    border: 1px solid #3f3f46;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+#develobar .dropdown.open .menu {
+    display: flex;
+}
+
+#develobar .menu button {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+/* Colour picker results */
+
+#develobar .panel {
+    min-width: 340px; /* fits the longest value, e.g. cmyk(100%, 100%, 100%, 100%), on one line */
+    padding: 8px;
+    gap: 4px;
+}
+
+#develobar .swatch {
+    height: 36px;
+    margin-bottom: 4px;
+    border: 1px solid #3f3f46;
+    border-radius: 4px;
+}
+
+#develobar .panel .value {
+    height: 28px;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+#develobar .value .format {
+    width: 40px;
+    color: #a1a1aa;
+    font-size: 11px;
+    text-align: left;
+}
+
+#develobar .value code {
+    flex: 1;
+    font-family: Consolas, Menlo, monospace;
+    font-size: 12px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+#develobar .value .copied {
+    min-width: 44px; /* reserve room so values don't shift when "Copied" appears */
+    color: #a1a1aa;
+    font-size: 11px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+#develobar .palette-link {
+    display: block;
+    margin-top: 4px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    background: #2563eb;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+#develobar .picker-hint {
+    margin-top: 2px;
+    color: #a1a1aa;
+    font-size: 11px;
+    text-align: center;
+}
+
+#develobar .palette-link:hover {
+    background: #1d4ed8;
+}
+
+/* Copy CSS results */
+
+#develobar .css-panel {
+    width: 460px;
+    max-width: calc(100vw - 20px);
+}
+
+#develobar .css-target {
+    padding: 2px 2px 4px;
+    font-family: Consolas, Menlo, monospace;
+    font-size: 12px;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#develobar .css-code {
+    max-height: 340px;
+    margin: 0;
+    padding: 8px 10px;
+    overflow: auto;
+    background: #09090b;
+    border: 1px solid #3f3f46;
+    border-radius: 4px;
+    color: #e4e4e7;
+    font-family: Consolas, Menlo, monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: pre;
+    user-select: text;
+}
+
+#develobar .css-actions {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+#develobar .css-actions[hidden],
+#develobar .css-code[hidden],
+#develobar .css-note[hidden] {
+    display: none;
+}
+
+#develobar .panel .css-actions button {
+    flex: 1;
+    justify-content: center;
+    background: #27272a;
+}
+
+#develobar .panel .css-actions button:hover {
+    background: #3f3f46;
+}
+
+#develobar .panel .css-actions button.primary {
+    background: #2563eb;
+    color: #fff;
+}
+
+#develobar .panel .css-actions button.primary:hover {
+    background: #1d4ed8;
+}
+
+#develobar .css-note {
+    color: #71717a;
+    font-size: 11px;
+    text-align: center;
+}
+
+#develobar .spacer {
+    flex: 1;
+}
+
+#develobar .close {
+    font-size: 17px;
+    padding: 0 8px;
+}
