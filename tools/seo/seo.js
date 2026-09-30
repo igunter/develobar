@@ -842,11 +842,11 @@
         add = group('Indexing');
         const robots = [...directives(d.robots), ...directives(d.googlebot)];
         if (robots.includes('noindex') || robots.includes('none')) {
-            add('fail', 'Robots meta', d.googlebot ? `robots: ${d.robots ?? '–'} · googlebot: ${d.googlebot}` : d.robots, 'noindex: this page won\'t appear in search results.');
+            add('fail', 'Robots meta tag', d.googlebot ? `robots: ${d.robots ?? '–'} · googlebot: ${d.googlebot}` : d.robots, 'noindex: this page won\'t appear in search results.');
         } else if (robots.includes('nofollow')) {
-            add('warn', 'Robots meta', d.robots || d.googlebot, 'nofollow: links on this page won\'t pass signals.');
+            add('warn', 'Robots meta tag', d.robots || d.googlebot, 'nofollow: links on this page won\'t pass signals.');
         } else {
-            add('pass', 'Robots meta', d.robots || 'Not set (index, follow)');
+            add('pass', 'Robots meta tag', d.robots || 'Not set, so the default applies (index, follow)', d.robots ? '' : 'Optional. This is the <meta name="robots"> tag, separate from robots.txt.');
         }
 
         if (d.http.state === 'pending') {
@@ -1156,10 +1156,10 @@
         }
 
         return `
-            <h3>Robots meta</h3>
+            <h3>Robots meta tag</h3>
             <table>
-                ${row('robots', esc(d.robots ?? 'Not set'))}
-                ${d.googlebot !== null ? row('googlebot', esc(d.googlebot)) : ''}
+                ${row('<meta name="robots">', d.robots !== null ? esc(d.robots) : '<span class="muted">Not set, so the default applies (index, follow). This tag is optional and separate from robots.txt, which is checked below.</span>')}
+                ${d.googlebot !== null ? row('<meta name="googlebot">', esc(d.googlebot)) : ''}
             </table>
 
             <h3>HTTP response</h3>
