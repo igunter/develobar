@@ -22,6 +22,7 @@ Open it on any page by clicking the toolbar icon or pressing Alt+Shift+D. Develo
 - **Copy CSS**: select an element on the page to see the CSS that reproduces its look, ready to copy to your clipboard or download as a .css file.
 - **Accessibility**: check text contrast against WCAG AA or AAA, find missing or unhelpful alt text, review the heading outline, and spot keyboard problems such as unlabelled buttons and fields. Show the tab order on the page, and check any two colours with the built-in contrast checker. Click a result to jump to the element.
 - **SEO**: see the page's title, meta description, canonical, robots directives and every meta and link tag, with a search result preview and a checklist of common issues. Preview how the page looks when shared on social sites, explore its JSON-LD and microdata, and check whether robots.txt blocks the page. Links open Google's Rich Results Test, the Schema Markup Validator and PageSpeed Insights for deeper checks.
+- **Cookies**: see every cookie the site sets, including HttpOnly ones, with its domain, path, expiry and flags. Search, edit, add or delete cookies, and export them as JSON or a cookies.txt file for curl and wget. Cookie access is granted one site at a time, only when you choose to allow it.
 
 **Private by design**
 
@@ -33,7 +34,7 @@ Everything happens locally in your browser. Develobar has no accounts, no analyt
 
 ## Single Purpose Description
 
-Develobar provides a toolbar of front-end developer utilities (screenshot capture, colour picking, on-page measurement, CSS inspection, accessibility and SEO checks) that the user can open on any web page to inspect and capture that page.
+Develobar provides a toolbar of front-end developer utilities (screenshot capture, colour picking, on-page measurement, CSS inspection, accessibility and SEO checks, and cookie inspection) that the user can open on any web page to inspect and capture that page.
 
 ## Permission Justifications
 
@@ -48,6 +49,14 @@ The scripting permission is used to inject Develobar's toolbar and tool scripts 
 ### storage
 
 The storage permission is used only to remember which open tabs currently have the toolbar showing, so it can be restored after the page reloads. This is kept in session storage (chrome.storage.session), which holds just the tab's ID, is never written to disk, and is cleared when the tab or browser is closed. No page content, URLs or browsing data are stored.
+
+### cookies
+
+The cookies permission is used only by the Cookies tool, which shows the user the cookies of the site they are viewing and lets them search, edit, add, delete and export them. Content scripts cannot see HttpOnly cookies or cookie attributes such as domain, path, expiry and SameSite, so the chrome.cookies API is needed. Cookies are only shown to the user and are never transmitted.
+
+### Optional host permissions
+
+Host access is declared as optional and is never granted at install. It is requested one site at a time, only when the user opens the Cookies tool on a site and clicks Allow, followed by Chrome's own permission prompt. The request covers the current host and its parent domains, because cookies set on a parent domain are also sent to the site. chrome.cookies needs this host access to read and change a site's cookies. The user can remove it from the Cookies panel or chrome://extensions at any time.
 
 ### Remote code
 

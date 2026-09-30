@@ -22,5 +22,5 @@ Display the SEO Meta Tags, canonical, robots and structured data of the page in 
 WCAG Contrast checks, missing alt text, heading, focus and tab order
 
 
-[ ] Cookie Viewer
+[*] Cookie Viewer
 View, edit, search, export and delete per domain

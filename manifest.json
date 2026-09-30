@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Develobar",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A developer toolbar for any web page: screenshot, colour picker, measure and inspect.",
 
   "icons": {
@@ -23,7 +23,9 @@
     "service_worker": "background.js"
   },
 
-  "permissions": ["activeTab", "scripting", "storage"],
+  "permissions": ["activeTab", "scripting", "storage", "cookies"],
+
+  "optional_host_permissions": ["*://*/*"],
 
   "web_accessible_resources": [
     {

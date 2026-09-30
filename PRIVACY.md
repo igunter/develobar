@@ -1,6 +1,6 @@
 # Develobar Privacy Policy
 
-**Last updated:** 29 September 2026
+**Last updated:** 30 September 2026
 
 This policy explains how the Develobar Chrome extension ("Develobar", "the extension") handles your information. In short, Develobar does not collect, store, share or sell any personal data.
 
@@ -18,6 +18,7 @@ All of Develobar's features run entirely on your device, inside your browser:
 - **Copy CSS**: styles of the element you select are read from the page and shown to you so you can copy them to your clipboard or download a .css file. Nothing is transmitted.
 - **Accessibility**: the page's text colours, images, headings and controls are checked locally and the results are shown to you. Nothing is transmitted.
 - **SEO**: the page's tags and structured data are read locally. To check indexing, Develobar requests the current page's headers and its robots.txt from the same website you are viewing, just as your browser already does. Nothing is sent to the developer or to anyone else.
+- **Cookies**: the cookies of the site you are viewing are read in your browser and shown to you so you can search, edit, delete or export them. Changes are made only in your browser's own cookie store, and exports are saved straight to your computer. Cookies are never sent to the developer or to anyone else.
 - **Clipboard**: Develobar only writes to your clipboard when you choose to copy a value. It never reads your clipboard.
 
 ## Storage
@@ -37,8 +38,10 @@ Develobar requests only the permissions it needs to work:
 - **activeTab**: gives Develobar temporary access to the current tab only when you click its icon or press its keyboard shortcut, so it can show the toolbar and capture the visible tab for screenshots and the colour picker.
 - **scripting**: to add the toolbar to that tab, and to put it back if the page reloads while it is open.
 - **storage**: to remember which tabs have the toolbar open, as described under Storage above.
+- **cookies**: to read and change cookies for the Cookies tool.
+- **Optional site access**: the Cookies tool only works on a site after you choose Allow for that site and confirm Chrome's prompt. This lets Develobar read and change that site's cookies, including ones the page's own scripts can't see. It is granted one site at a time, and you can remove it from the Cookies panel or at chrome://extensions at any time.
 
-Develobar has no access to any website until you open it there, and that access ends when the tab moves to a different site or is closed, and it never uses these permissions to collect, record or transmit your browsing activity or page content.
+Develobar has no access to any website until you open it there, and that access ends when the tab moves to a different site or is closed, unless you have allowed cookie access for that site. It never uses these permissions to collect, record or transmit your browsing activity, page content or cookies.
 
 ## Data sharing and sale
 

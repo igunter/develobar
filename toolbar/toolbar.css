@@ -78,6 +78,20 @@
     cursor: pointer;
 }
 
+/* Keep toolbar button labels on one line; panel buttons can still wrap. */
+#develobar > button,
+#develobar > .dropdown > button {
+    white-space: nowrap;
+}
+
+/* Icon-only toolbar buttons on small screens; the title attribute keeps a tooltip. */
+@media (max-width: 1000px) {
+    #develobar > button .label,
+    #develobar > .dropdown > button .label {
+        display: none;
+    }
+}
+
 #develobar button:hover {
     background: #27272a;
     color: #fff;
